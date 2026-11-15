@@ -1,4 +1,4 @@
-# Scaperooms Docencia
+# Scape Rooms Docencia
 
 Proyecto de innovación docente de la Universidad de Cantabria sobre el uso de escape rooms digitales narrativos para el aprendizaje activo y la evaluación formativa. El alumnado resuelve retos de la asignatura y toma decisiones que cambian su recorrido y el desenlace de la historia. Los retos permiten practicar el pensamiento crítico, la resolución de problemas y la toma de decisiones, e incorporan los Objetivos de Desarrollo Sostenible (ODS).
 

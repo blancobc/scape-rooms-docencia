@@ -4,7 +4,7 @@
 
 **Participantes.** Carlos, como responsable principal, con el apoyo del resto del equipo.  
 **Temporización prevista en la memoria.** Octubre de 2026.  
-**Estado.** Borrador de contenidos y retos. La narrativa y el dispositivo quedan por elegir.
+**Estado.** Borrador para revisión por escenas. Se propone una máquina de devolución de vasos reutilizables.
 
 ## 1. Diseño del escape room de adquisición
 
@@ -21,21 +21,19 @@
 
 Las transparencias también incluyen señales y acciones de estado (`entry`, `do` y `exit`). Pueden aparecer en un reto adicional si encajan en el dispositivo elegido. El ejercicio resuelto de la clase `Inmueble` aporta otro criterio de diseño: se puede representar una capacidad con estados distintos o con una guarda, siempre que se conserve el comportamiento pedido.
 
-### Secuencia de retos
+### Misión y secuencia provisional de retos
 
-La misión consiste en poner en servicio un dispositivo que se comporta de forma inesperada. Cada reto empieza con una escena que muestra el fallo. Después se abre el panel de diagnóstico con la secuencia de eventos, la clase y el fragmento de diagrama implicado. El alumnado selecciona una reparación y vuelve a ejecutar el caso para ver qué ocurre. Los tres incidentes se ilustran con una expendedora y se pueden adaptar a otros dispositivos.
+Esta semana la facultad ha instalado una máquina para recuperar y reutilizar los vasos de la cafetería. Al pedir una bebida, se paga un euro de depósito por el vaso. Al devolverlo a la máquina, se recupera ese euro y el vaso se recoge para lavarlo y volver a usarlo. En **Operación Vaso Doble**, el jugador debe reparar la máquina antes de que abra la facultad por la mañana. Cada reto arranca con un fallo visible. El jugador reproduce el incidente, abre el panel con la clase y el fragmento de diagrama pertinente, elige una reparación y repite la prueba para ver sus efectos.
 
-| Bloque | Lo que se ve en el juego | Qué se repara o diseña |
+| Reto | Lo que ve el jugador | Qué investiga y corrige |
 | --- | --- | --- |
-| **1. La compra sale gratis** | La máquina entrega un refresco y devuelve todo el dinero introducido. | Seguir la compra por el diagrama y corregir la acción que calcula el cambio. |
-| **2. La máquina cancela antes de tiempo** | El cliente está eligiendo un refresco y la máquina le devuelve las monedas nada más empezar la compra. | Revisar el evento temporal. La compra debe caducar a los 30 segundos de entrar en el estado de selección con `after(30 s)`. Este reto puede incluir un segundo caso breve, como programar el inicio del autodiagnóstico a una hora fija con `at(...)`. |
-| **3. La máquina sigue aceptando monedas sin existencias** | Se retira la última lata durante una revisión y, al quedar vacía, la máquina todavía acepta monedas. | Diseñar el paso a «Sin existencias» desde «Disponible» con `when(existenciasTotales == 0)`. La prueba debe provocar el cambio de una unidad a cero mientras «Disponible» está activo y comprobar que se deshabilita el cobro. |
+| **1. Un vaso, dos euros** | Entra un vaso con un euro de depósito. El móvil vibra dos veces y el historial muestra dos abonos. La pantalla dice «Gracias por volver». | Rastrear las llamadas y las acciones del modelo. El abono se ejecuta al validar el vaso y al cerrar la devolución. Situarlo en la transición que confirma la recogida y comprobar que se ejecuta una sola vez. |
+| **2. Admitido y expulsado** | El vaso de 8 cm, justo en el límite admitido, recibe el mensaje «Vaso aceptado» o acaba devuelto según qué ruta habilitada tome el controlador. | Revisar las dos salidas del mismo estado ante `validarVaso(altura)`. Probar las guardas con medidas por debajo, justo en el límite y por encima. |
+| **3. Cinco segundos de paciencia** | La compuerta se cierra en cuanto el jugador pulsa «Devolver». La pantalla le aconseja que la próxima vez se dé más prisa. | Colocar `after(5 s)` en la salida del estado «Esperando vaso». Comparar una devolución a tiempo con una sesión en la que nadie introduce el vaso. |
+| **4. Mantenimiento en plena hora punta** | La encargada programa el autodiagnóstico para las ocho. La máquina se pone a hacerlo en ese mismo momento, delante de toda la cola. | Usar `at(horaProgramada)` desde el estado de espera. Verificar que programar la hora deja pendiente el diagnóstico hasta que llegue ese momento. |
+| **5. El vaso que ya no cabe** | El último vaso llena el módulo de recogida. La máquina saluda al siguiente cliente con «Todavía hay sitio» y admite otro vaso. | Añadir `when(depositoLleno)` mientras está activo el estado que supervisa la capacidad. Comprobar que el sensor pasa de falso a verdadero y que, una vez lleno, `iniciarDevolucion()` deja de abrir la compuerta. |
 
-### Ejemplo de escena jugable
-
-El jugador introduce **2 €**, elige un refresco de **1,50 €** y ve caer la lata seguida de **2 €** en la bandeja. En el panel de diagnóstico, el rastro de la compra muestra que se ejecutó `devolverCambio(saldo)`. El jugador elige cómo corregir el modelo y repite la compra. Con `devolverCambio(saldo - precio)`, ve caer una sola lata y **0,50 €**. Una segunda compra con importe exacto permite comprobar que el cambio es cero.
-
-Un incidente breve del mismo bloque puede trabajar las **guardas** con un fallo que solo aparece al pagar el importe exacto. El panel muestra que, ante la misma selección, quedan habilitadas a la vez las rutas de dispensar y de rechazar por saldo insuficiente. El jugador ajusta las guardas y comprueba los tres casos de saldo inferior, igual y superior al precio.
+Los tiempos son orientativos. Se reservan **3 minutos para el arranque, 5 por reto y 2 para el cierre**. El primer reto introduce la clase y el panel de diagnóstico. En el cuarto se puede revisar el fragmento del ciclo de autodiagnóstico para trabajar la salida sin disparador del nodo inicial y el estado final sin salidas.
 
 ## 2. Adaptación del marco metodológico al contexto concreto
 
@@ -43,4 +41,4 @@ La partida será individual y durará unos 30 minutos. Se combinarán retos de e
 
 Detectar fallos practica el **pensamiento crítico**. Completar el modelo y recorrerlo con eventos concretos practica la **resolución de problemas**. Elegir entre diseños válidos y anticipar sus consecuencias practica la **toma de decisiones**.
 
-Como opción para integrar el **ODS 12, Producción y consumo responsables**, una máquina de refrescos podría plantear una decisión sobre cuándo activar el modo de bajo consumo, considerando el ahorro energético y el tiempo de respuesta. Esta propuesta depende del dispositivo elegido. El diseño final concretará la narrativa, los diagramas, las opciones y las consecuencias de cada decisión. La Fase 4 definirá el registro de la primera partida y la encuesta.
+El **ODS 12, Producción y consumo responsables**, se integra mediante el circuito de devolución y reutilización de vasos. Tras el último fallo, el jugador puede pedir un recambio y seguir atendiendo con el módulo de reserva o pausar la máquina para sustituir el lleno. El cierre muestra cómo afecta la decisión a las devoluciones completadas y a la espera en la cola. La Fase 4 definirá el registro de la primera partida y la encuesta.

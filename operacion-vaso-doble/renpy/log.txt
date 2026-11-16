@@ -1,0 +1,54 @@
+2026-11-16 23:01:40 UTC
+macOS-27.2.1-arm64-arm-64bit
+Ren'Py 8.6.0.26110123
+
+Early init took 26 ms
+Loading error handling took 11 ms
+Loading script took 62 ms
+Loading save slot metadata took 11 ms
+Loading persistent took 0 ms
+Running init code took 18 ms
+Loading analysis data took 2 ms
+Analyze and compile ATL took 0 ms
+Reloading save slot metadata took 1 ms
+Backing up script files to '/Users/blancobc/Library/RenPy/backups/renpy':
+Dump and make backups took 22 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 16 ms
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 4 ms
+Save screen analysis took 5 ms
+Save pyanalysis took 2 ms
+Save bytecode took 15 ms
+Running _start took 0 ms
+Interface start took 848 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1496, 967)
+swap interval: 1 frames
+Requesting OpenGL 3.3.
+Fullscreen mode.
+Opening in fullscreen failed: error('Failed creating OpenGL context at version requested')
+Windowed mode.
+Could not get pygame screen: error('Failed creating OpenGL context at version requested')
+Requesting OpenGL 3.3 core.
+Fullscreen mode.
+Vendor: 'Apple'
+Renderer: 'Apple M2 Pro'
+Version: '4.1 Metal - 91.7'
+Shading language version: '4.10'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1496, 'current_h': 967, 'refresh_rate': 120.0, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Emitting shaders as GLSL 330.
+Screen sizes: virtual=(1280, 720) physical=(1496, 857) drawable=(2992, 1714)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1280, 720) physical=(1496, 939) drawable=(2992, 1878)
+Maximum texture size: 4096x4096
+Resize event: <Event(518-WINDOWRESIZED data1=1496, data2=939, mod=0)>
+Cleaning stores took 0 ms
+Load screen analysis took 6 ms
+Analyze screens took 0 ms
+Running _start took 1 ms

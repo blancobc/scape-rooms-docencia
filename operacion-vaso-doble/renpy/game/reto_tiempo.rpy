@@ -61,8 +61,8 @@ label reparar_tiempo:
     "Saca del bolsillo un papel doblado. Pone «ACERQUE EL VASO ANTES DE PULSAR». Debajo, en letra más pequeña: «Y SEA RÁPIDO»."
     "Lo arruga y lo tira al cubo."
     encargada "Ya me veía plastificándolo."
-    call screen tarjeta("Reto 3 resuelto", "Cinco segundos de paciencia", "El plazo empieza al entrar en «Esperando vaso».", "Volver al menú")
-    return
+    call screen tarjeta("Reto 3 resuelto", "Cinco segundos de paciencia", "El plazo empieza al entrar en «Esperando vaso».", "Seguir")
+    jump reto_diagnostico
 
 screen recorrido_tiempo():
     modal True

@@ -46,6 +46,4 @@ El **ODS 12, Producción y consumo responsables**, se hace explícito al configu
 
 Se puede avisar al 50 %, al 80 %, al 95 % o al llenarse. Cada alternativa muestra el margen disponible, el riesgo de interrupción y sus implicaciones para el trabajo del personal. El 80 % ofrece diez minutos de capacidad al ritmo previsto. El jugador puede cambiar o mantener su configuración y recibe un cierre acorde con ella. Estos tiempos son estimaciones del escenario con afluencia constante.
 
-### Aspectos pendientes
 
-El pilotaje comprobará duración y dificultad. Quedan por concretar el posible peso en la nota, las pistas, el resumen individual de errores y el registro de interacción y la encuesta de la Fase 4. Los nodos inicial y final, las señales y las acciones `entry`, `do` y `exit` quedan como contenidos de clase que podrán incorporarse en una ampliación. El prototipo actual utiliza fragmentos de diagramas y aún requiere explicitar la clase y sus atributos y operaciones.

@@ -48,3 +48,11 @@ Maximum texture size: 4096x4096
 Screen sizes: virtual=(1280, 720) physical=(1496, 939) drawable=(2992, 1878)
 Maximum texture size: 4096x4096
 Resize event: <Event(518-WINDOWRESIZED data1=1496, data2=939, mod=0)>
+Cleaning stores took 0 ms
+Load screen analysis took 8 ms
+Analyze screens took 0 ms
+Running _start took 2 ms
+Cleaning stores took 0 ms
+Load screen analysis took 9 ms
+Analyze screens took 0 ms
+Running _start took 2 ms

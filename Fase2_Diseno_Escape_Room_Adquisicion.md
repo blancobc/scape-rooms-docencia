@@ -1,44 +1,51 @@
 # Fase 2. Diseño del escape room de adquisición
 
-**Descripción.** Diseño de una actividad sobre máquinas de estados UML para Ingeniería del Software I. El tema pertenece al bloque de diseño de la asignatura, que sigue a los de requisitos y arquitectura.
+**Descripción.** Diseño de una actividad sobre máquinas de estados UML para Ingeniería del Software I, dentro del bloque de diseño, posterior a requisitos y arquitectura.
 
 **Participantes.** Carlos, como responsable principal, con el apoyo del resto del equipo.  
 **Temporización prevista en la memoria.** Octubre de 2026.  
-**Estado.** Borrador para revisión por escenas. Se propone una máquina de devolución de vasos reutilizables.
+**Estado.** Prototipo narrativo y funcional en Ren’Py con cinco retos. Pendiente de pilotaje en el aula.
 
 ## 1. Diseño del escape room de adquisición
 
-### Conceptos que se trabajarán
+### Historia y objetivos de aprendizaje
 
-| Concepto | Qué deberá hacer el alumnado |
-| --- | --- |
-| **Comportamiento de una clase** | Identificar los estados relevantes de una instancia y predecir cómo responde al mismo evento según su estado. Comprobar que los atributos y las operaciones utilizados están definidos en la clase. |
-| **Inicio y fin** | Identificar el primer estado y corregir la única transición que sale del nodo inicial, que debe ir sin disparador. Usar un estado final cuando termina el comportamiento modelado y comprobar que carece de transiciones salientes. |
-| **Disparadores y acciones** | Leer y completar etiquetas con la forma `evento [guarda] / acción`. Usar llamadas a operaciones de la clase como disparadores y distinguirlas de las acciones ejecutadas al recorrer la transición. En los diagramas de la actividad, toda transición ordinaria requiere un disparador explícito. |
-| **Eventos temporales** | Distinguir una hora programada, `at(...)`, de un plazo contado desde la entrada en el estado, `after(...)`. |
-| **Eventos de cambio** | Usar `when(...)` para reaccionar cuando una condición pasa de falsa a verdadera. Una guarda se comprueba al producirse su evento disparador. |
-| **Guardas** | Si dos transiciones salen del mismo estado con el mismo evento, comprobar que sus guardas sean mutuamente excluyentes. Probar el valor límite y comprobar qué casos debe cubrir el modelo según el enunciado. |
+En **Operación Vaso Doble**, el jugador es becario de la facultad y ayuda a reparar una máquina de devolución de vasos reutilizables instalada esa semana. Al pedir una bebida se paga un euro de depósito, que se recupera al devolver el vaso para su lavado y reutilización.
 
-Las transparencias también incluyen señales y acciones de estado (`entry`, `do` y `exit`). Pueden aparecer en un reto adicional si encajan en el dispositivo elegido. El ejercicio resuelto de la clase `Inmueble` aporta otro criterio de diseño: se puede representar una capacidad con estados distintos o con una guarda, siempre que se conserve el comportamiento pedido.
+La historia empieza treinta minutos antes de abrir la facultad. Circula un vídeo titulado «Cómo financiar el café de todo el cuatrimestre» porque la máquina abona dos euros por cada vaso. Tras reparar ese fallo, aparecen nuevas incidencias durante el desayuno, antes del descanso, a la hora de comer y durante la sobremesa. La encargada y los estudiantes introducen los problemas mediante escenas breves de humor cotidiano.
 
-### Misión y secuencia provisional de retos
+El alumnado deberá interpretar transiciones con la forma `evento [guarda] / acción`, distinguir operaciones disparadoras de acciones, corregir guardas en casos límite y elegir eventos temporales y de cambio adecuados. Se aplican las convenciones de los ejercicios de clase, que requieren un disparador explícito en las transiciones ordinarias.
 
-Esta semana la facultad ha instalado una máquina para recuperar y reutilizar los vasos de la cafetería. Al pedir una bebida, se paga un euro de depósito por el vaso. Al devolverlo a la máquina, se recupera ese euro y el vaso se recoge para lavarlo y volver a usarlo. En **Operación Vaso Doble**, el jugador debe reparar la máquina antes de que abra la facultad por la mañana. Cada reto arranca con un fallo visible. El jugador reproduce el incidente, abre el panel con la clase y el fragmento de diagrama pertinente, elige una reparación y repite la prueba para ver sus efectos.
+### Los cinco retos
 
-| Reto | Lo que ve el jugador | Qué investiga y corrige |
+| Reto | Fallo presentado | Reparación y comprobación |
 | --- | --- | --- |
-| **1. Un vaso, dos euros** | Entra un vaso con un euro de depósito. El móvil vibra dos veces y el historial muestra dos abonos. La pantalla dice «Gracias por volver». | Rastrear las llamadas y las acciones del modelo. El abono se ejecuta al validar el vaso y al cerrar la devolución. Situarlo en la transición que confirma la recogida y comprobar que se ejecuta una sola vez. |
-| **2. Admitido y expulsado** | El vaso de 8 cm, justo en el límite admitido, recibe el mensaje «Vaso aceptado» o acaba devuelto según qué ruta habilitada tome el controlador. | Revisar las dos salidas del mismo estado ante `validarVaso(altura)`. Probar las guardas con medidas por debajo, justo en el límite y por encima. |
-| **3. Cinco segundos de paciencia** | La compuerta se cierra en cuanto el jugador pulsa «Devolver». La pantalla le aconseja que la próxima vez se dé más prisa. | Colocar `after(5 s)` en la salida del estado «Esperando vaso». Comparar una devolución a tiempo con una sesión en la que nadie introduce el vaso. |
-| **4. Mantenimiento en plena hora punta** | La encargada programa el autodiagnóstico para las ocho. La máquina se pone a hacerlo en ese mismo momento, delante de toda la cola. | Usar `at(horaProgramada)` desde el estado de espera. Verificar que programar la hora deja pendiente el diagnóstico hasta que llegue ese momento. |
-| **5. El vaso que ya no cabe** | El último vaso llena el módulo de recogida. La máquina saluda al siguiente cliente con «Todavía hay sitio» y admite otro vaso. | Añadir `when(depositoLleno)` mientras está activo el estado que supervisa la capacidad. Comprobar que el sensor pasa de falso a verdadero y que, una vez lleno, `iniciarDevolucion()` deja de abrir la compuerta. |
+| **1. Un vaso, dos euros** | Un único vaso produce dos abonos. | Dejar el abono en `confirmarRecogida()`. Las otras opciones lo sitúan al abrir la compuerta o al validar el vaso. La explicación contrasta devolverlo con retirarlo antes de que caiga al depósito. |
+| **2. Un vaso al que le falta un milímetro** | Se rechaza el vaso de café solo, de 8 cm, aunque cumple el mínimo. | Corregir las guardas solapadas `>= 8` y `<= 8`. Se prueban juntas las alturas 7,9, 8,0 y 8,1 cm. La solución acepta con `>= 8` y rechaza con `< 8`. |
+| **3. Cinco segundos de paciencia** | La compuerta se cierra inmediatamente y agradece la paciencia del usuario. | Sustituir `after(0 s)` por `after(5 s)` desde «Esperando vaso». Se compara con contar desde «Disponible». Las pruebas incluyen un vaso introducido a los tres segundos y una espera sin vaso, tras seis segundos previos de reposo. |
+| **4. Mantenimiento en plena hora punta** | A las 13:55, la encargada programa la revisión para mañana a las 08:00 y el diagnóstico arranca inmediatamente, formando una cola. | Mantener el servicio tras guardar e iniciar con `at(fechaHoraProgramada)`. Se contrasta con `after(8 h)` para programaciones guardadas a las 13:55 y a las 16:00. |
+| **5. Todavía cabe uno más** | El depósito está lleno y la máquina sigue ofreciendo devoluciones. | Usar `when(depositoLleno)` para bloquearlas. Las alternativas esperan una operación con guarda, un plazo de cinco segundos o el cambio de la condición inversa. Después se configura el aviso preventivo. |
 
-Los tiempos son orientativos. Se reservan **3 minutos para el arranque, 5 por reto y 2 para el cierre**. El primer reto introduce la clase y el panel de diagnóstico. En el cuarto se puede revisar el fragmento del ciclo de autodiagnóstico para trabajar la salida sin disparador del nodo inicial y el estado final sin salidas.
+Los eventos temporales se trabajan en dos retos distintos, uno para el plazo relativo con `after(...)` y otro para la fecha y hora con `at(...)`. El evento de cambio `when(...)` ocupa el quinto reto y se diferencia de la comprobación de una guarda.
+
+En la prueba del sensor, el depósito permanece lleno mientras el panel simula la señal pasando de falso a verdadero. Solo se muestra vacío después de que la encargada lo sustituya.
 
 ## 2. Adaptación del marco metodológico al contexto concreto
 
-La partida será individual y durará unos 30 minutos. Se combinarán retos de elección múltiple con decisiones que modifican la escena, pistas y retroalimentación inmediata. El alumnado podrá completar la misión por cualquier ruta y recibirá un resumen final con los errores que conviene revisar.
+### Dinámica y retroalimentación
 
-Detectar fallos practica el **pensamiento crítico**. Completar el modelo y recorrerlo con eventos concretos practica la **resolución de problemas**. Elegir entre diseños válidos y anticipar sus consecuencias practica la **toma de decisiones**.
+La actividad se plantea como una partida individual de unos 30 minutos, duración pendiente de comprobar con alumnado. Cada reto presenta el fallo, permite reproducirlo y muestra un fragmento del diagrama con un botón para proponer la reparación. El diagrama permanece visible junto a las opciones.
 
-El **ODS 12, Producción y consumo responsables**, se integra mediante el circuito de devolución y reutilización de vasos. Tras el último fallo, el jugador puede pedir un recambio y seguir atendiendo con el módulo de reserva o pausar la máquina para sustituir el lleno. El cierre muestra cómo afecta la decisión a las devoluciones completadas y a la espera en la cola. La Fase 4 definirá el registro de la primera partida y la encuesta.
+La elección produce una explicación inmediata con **«Solución correcta» en verde** o **«Solución incorrecta» en rojo**. Los casos del banco de pruebas aparecen juntos. Una reparación incorrecta permite volver a elegir y la correcta conduce a la comprobación narrativa y al siguiente incidente. Las ilustraciones de personajes, máquina y pantalla cambian según la acción.
+
+Detectar errores practica el **pensamiento crítico**. Aplicar las reglas a los casos de prueba practica la **resolución de problemas**. La configuración final permite ejercitar la **toma de decisiones**.
+
+### Integración del ODS 12
+
+El **ODS 12, Producción y consumo responsables**, se hace explícito al configurar el aviso preventivo para mantener el circuito de reutilización. El caso establece una capacidad de 100 vasos, llegadas de unos dos vasos por minuto y cinco minutos de respuesta del personal.
+
+Se puede avisar al 50 %, al 80 %, al 95 % o al llenarse. Cada alternativa muestra el margen disponible, el riesgo de interrupción y sus implicaciones para el trabajo del personal. El 80 % ofrece diez minutos de capacidad al ritmo previsto. El jugador puede cambiar o mantener su configuración y recibe un cierre acorde con ella. Estos tiempos son estimaciones del escenario con afluencia constante.
+
+### Aspectos pendientes
+
+El pilotaje comprobará duración y dificultad. Quedan por concretar el posible peso en la nota, las pistas, el resumen individual de errores y el registro de interacción y la encuesta de la Fase 4. Los nodos inicial y final, las señales y las acciones `entry`, `do` y `exit` quedan como contenidos de clase que podrán incorporarse en una ampliación. El prototipo actual utiliza fragmentos de diagramas y aún requiere explicitar la clase y sus atributos y operaciones.

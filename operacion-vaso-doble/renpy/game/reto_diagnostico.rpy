@@ -63,8 +63,8 @@ label reparar_diagnostico:
     scene cafeteria mediodia with dissolve
     encargada "¿Y ahora?"
     "Ahora sí puedes ir a comer."
-    call screen tarjeta("Reto 4 resuelto", "Mantenimiento en plena hora punta", "La revisión arranca en la fecha y hora programadas.", "Volver al menú")
-    return
+    call screen tarjeta("Reto 4 resuelto", "Mantenimiento en plena hora punta", "La revisión arranca en la fecha y hora programadas.", "Seguir")
+    jump reto_capacidad
 
 screen recorrido_diagnostico():
     modal True

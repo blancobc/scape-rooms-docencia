@@ -108,7 +108,7 @@ screen elegir_abono():
             textbutton "Al recoger el vaso · confirmarRecogida()" action Return("caida") style "boton"
     key "game_menu" action Show("pausa")
 
-screen pantalla_maquina(mensaje, detalle=None):
+screen pantalla_maquina(mensaje, detalle=None, tam_detalle=29):
     vbox:
         xpos 648
         ypos 135
@@ -118,4 +118,4 @@ screen pantalla_maquina(mensaje, detalle=None):
         spacing 3
         text mensaje xalign 0.5 textalign 0.5 color "#b5fff0" size 19
         if detalle:
-            text detalle xalign 0.5 textalign 0.5 color "#f5fffc" size 29
+            text detalle xalign 0.5 textalign 0.5 color "#f5fffc" size tam_detalle

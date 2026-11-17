@@ -89,8 +89,8 @@ label reparar_altura:
     with dissolve
     "El estudiante mira el móvil y sonríe al ver el abono."
     estudiante "Perfecto. Ya puedo permitirme devolver el siguiente."
-    call screen tarjeta("Reto 2 resuelto", "Un vaso al que le falta un milímetro", "Las guardas son mutuamente excluyentes y el vaso de 8 cm entra por la ruta de aceptación.", "Volver al menú")
-    return
+    call screen tarjeta("Reto 2 resuelto", "Un vaso al que le falta un milímetro", "Las guardas son mutuamente excluyentes y el vaso de 8 cm entra por la ruta de aceptación.", "Seguir")
+    jump reto_tiempo
 
 screen recorrido_altura():
     modal True
@@ -139,7 +139,11 @@ screen verificar_guardas_altura(guardas):
         background Solid("#10292e")
         vbox:
             spacing 16
-            text "Banco de pruebas del sensor" size 34
+            text "Banco de pruebas del sensor" size 25
+            if correcta:
+                text "Solución correcta" size 34 color "#a6ead5"
+            else:
+                text "Solución incorrecta" size 34 color "#ffb1a7"
             for indice, medida in enumerate(medidas):
                 $ lectura = etiqueta_altura(medida)
                 $ acepta, rechaza = ramas_altura(medida, guardas)
@@ -151,8 +155,8 @@ screen verificar_guardas_altura(guardas):
                 textbutton "Aplicar la reparación" action Return("aplicar") style "boton"
             else:
                 if guardas[1]:
-                    text "Las guardas son excluyentes, pero el vaso de 8 cm aún se rechaza." size 24 color "#ffcd9a"
+                    text "Las guardas son excluyentes, pero el vaso de 8 cm aún se rechaza." size 24 color "#ffb1a7"
                 else:
-                    text "Con 8 cm ninguna guarda se cumple. La máquina se queda esperando." size 24 color "#ffcd9a"
+                    text "Con 8 cm ninguna guarda se cumple. La máquina se queda esperando." size 24 color "#ffb1a7"
                 textbutton "Revisar las guardas" action Return("revisar") style "boton"
     key "game_menu" action Show("pausa")

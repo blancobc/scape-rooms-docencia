@@ -1,0 +1,4 @@
+interface:
+  display_name: "Escape room docente"
+  short_description: "Diseño narrativo, Ren’Py, encuestas y registros CSV"
+  default_prompt: "Usa $escape-room-docente para diseñar un juego docente a partir de mis materiales, empezando por los conceptos y la historia."

@@ -3,6 +3,7 @@ image encargada cartel = Transform("images/encargada-cartel.png", xysize=(660, 6
 image maquina cerrada = Transform("images/maquina-cerrada.png", xysize=(1280, 720), fit="cover")
 
 label reto_tiempo:
+    $ iniciar_reto(3)
     scene cafeteria
     show encargada reloj at junto_mostrador
     with fade
@@ -31,6 +32,7 @@ label reto_tiempo:
 label reparar_tiempo:
     call screen elegir_tiempo
     $ temporizador_en_espera = _return
+    $ registrar_respuesta("temporizador", temporizador_en_espera, temporizador_en_espera)
     call screen resultado_tiempo(temporizador_en_espera)
 
     if not temporizador_en_espera:

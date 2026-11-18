@@ -28,6 +28,7 @@ transform centro_cafeteria:
     yalign 1.0
 
 label reto_altura:
+    $ iniciar_reto(2)
     scene cafeteria
     show encargada vaso at junto_mostrador
     with fade
@@ -65,6 +66,7 @@ label reto_altura:
 label reparar_altura:
     call screen elegir_guardas_altura
     $ guardas_propuestas = _return
+    $ registrar_respuesta("guardas", guardas_propuestas, guardas_propuestas == reparaciones_altura[0])
     call screen verificar_guardas_altura(guardas_propuestas)
 
     if _return == "revisar":

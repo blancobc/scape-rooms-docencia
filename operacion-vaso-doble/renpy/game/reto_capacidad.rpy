@@ -17,6 +17,7 @@ define errores_capacidad = (
 )
 
 label reto_capacidad:
+    $ iniciar_reto(5)
     scene cafeteria sobremesa with fade
     "Estás terminando de comer cuando oyes a la encargada desde la máquina."
     encargada "No metas ese. Espera."
@@ -45,6 +46,7 @@ label reto_capacidad:
 label reparar_capacidad:
     call screen elegir_capacidad
     $ reparacion_capacidad = _return
+    $ registrar_respuesta("capacidad", reparacion_capacidad, reparacion_capacidad == 0)
     call screen resultado_capacidad(reparacion_capacidad)
     if reparacion_capacidad != 0:
         jump reparar_capacidad
@@ -70,7 +72,9 @@ label reparar_capacidad:
 label decidir_aviso:
     call screen elegir_aviso
     $ umbral_aviso = _return
+    $ registrar_respuesta("aviso_preventivo", umbral_aviso)
     call screen consecuencia_aviso(umbral_aviso)
+    $ registrar_respuesta("confirmacion_aviso", _return)
     if _return == "revisar":
         jump decidir_aviso
 
@@ -91,7 +95,9 @@ label decidir_aviso:
         "El aviso llega con el depósito lleno. Durante los cinco minutos de espera, las devoluciones quedan interrumpidas."
         encargada "El móvil y la cola me lo han dicho a la vez."
 
+    $ registro_actual.terminar()
     call screen tarjeta("Reto 5 completado", "Operación Vaso Doble", "Reparaste el evento de cambio y configuraste el aviso de capacidad. El circuito de devolución permite lavar los vasos y volver a usarlos.", "Volver al menú")
+    call screen exportar_registro
     return
 
 screen recorrido_capacidad():

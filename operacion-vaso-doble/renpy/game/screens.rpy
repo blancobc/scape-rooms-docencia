@@ -13,6 +13,7 @@ style boton_text is button_text:
     size 24
 
 screen main_menu():
+    on "show" action Function(cerrar_registro)
     tag menu
     add "cafeteria"
     add Solid("#071e22b0") xsize 620
@@ -42,7 +43,7 @@ screen say(who, what):
 
 screen accion(etiqueta):
     modal True
-    textbutton etiqueta action Return() style "boton" xalign 0.5 yalign 0.88
+    textbutton etiqueta action [Function(registrar_boton, etiqueta), Return()] style "boton" xalign 0.5 yalign 0.88
     key "game_menu" action Show("pausa")
 
 screen tarjeta(seccion, titulo, detalle, boton, acento="#fff6e5"):
@@ -59,7 +60,7 @@ screen tarjeta(seccion, titulo, detalle, boton, acento="#fff6e5"):
             text seccion color "#a6ead5" size 22
             text titulo size 36 color acento
             text detalle size 25
-            textbutton boton action Return() style "boton"
+            textbutton boton action [Function(registrar_boton, boton), Return()] style "boton"
     key "game_menu" action Show("pausa")
 
 screen pausa():

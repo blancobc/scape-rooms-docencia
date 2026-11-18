@@ -4,6 +4,7 @@ image cafeteria mediodia = Transform("images/cafeteria-mediodia.png", xysize=(12
 image encargada cola = Transform("images/encargada-cola.png", xysize=(660, 610), fit="contain")
 
 label reto_diagnostico:
+    $ iniciar_reto(4)
     scene cafeteria cola_bloqueada with fade
     "Son casi las dos. Vas a la cafetería a comer y, antes de llegar al mostrador, ves una cola delante de la máquina de devolución. Todo el mundo lleva un vaso en la mano."
 
@@ -39,6 +40,7 @@ label reto_diagnostico:
 label reparar_diagnostico:
     call screen elegir_diagnostico
     $ diagnostico_hora_fija = _return
+    $ registrar_respuesta("autodiagnostico", diagnostico_hora_fija, diagnostico_hora_fija)
     call screen resultado_diagnostico(diagnostico_hora_fija)
 
     if not diagnostico_hora_fija:

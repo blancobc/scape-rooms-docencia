@@ -1,3 +1,4 @@
+define config.rollback_enabled = False
 define config.name = "Operación Vaso Doble"
 define config.save_directory = "operacion-vaso-doble"
 define config.window_title = "Operación Vaso Doble"
@@ -19,6 +20,8 @@ transform junto_mostrador:
     yalign 1.0
 
 label start:
+    $ iniciar_registro()
+    $ iniciar_reto(1)
     scene cafeteria with dissolve
     "Es una mañana cualquiera y faltan treinta minutos para que abra la facultad. Esta semana han instalado una máquina para recuperar los vasos reutilizables de la cafetería. Cuando pides un café, pagas un euro de depósito por el vaso. Al devolverlo a la máquina, recuperas el euro y el vaso se recoge para lavarlo y volver a usarlo."
 
@@ -57,6 +60,7 @@ label start:
 label reparar_abono:
     call screen elegir_abono
     $ momento_abono = _return
+    $ registrar_respuesta("abono", momento_abono, momento_abono == "caida")
 
     if momento_abono == "caida":
         call screen tarjeta(

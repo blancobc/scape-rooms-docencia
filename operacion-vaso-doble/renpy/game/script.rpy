@@ -21,6 +21,8 @@ transform junto_mostrador:
 
 label start:
     $ iniciar_registro()
+    call encuesta_confianza("pre")
+    $ registro_actual.anotar("inicio_juego")
     $ iniciar_reto(1)
     scene cafeteria with dissolve
     "Es una mañana cualquiera y faltan treinta minutos para que abra la facultad. Esta semana han instalado una máquina para recuperar los vasos reutilizables de la cafetería. Cuando pides un café, pagas un euro de depósito por el vaso. Al devolverlo a la máquina, recuperas el euro y el vaso se recoge para lavarlo y volver a usarlo."

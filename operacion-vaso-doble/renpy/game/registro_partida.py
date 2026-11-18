@@ -67,11 +67,16 @@ class Registro:
             acierto_primera="" if correcta is None else int(correcta and self.intentos[clave] == 1),
         )
 
+    def cerrar_reto(self):
+        if self.reto:
+            self.anotar("fin_reto")
+            self.reto = ""
+            self.reloj_reto = None
+
     def terminar(self, estado="completada"):
         if self.estado != "en_curso":
             return
-        if self.reto:
-            self.anotar("fin_reto")
+        self.cerrar_reto()
         self.fin = datetime.now().astimezone().isoformat(timespec="seconds")
         self.total = round(time.monotonic() - self.reloj, 3)
         self.estado = estado

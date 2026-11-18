@@ -95,8 +95,11 @@ label decidir_aviso:
         "El aviso llega con el depósito lleno. Durante los cinco minutos de espera, las devoluciones quedan interrumpidas."
         encargada "El móvil y la cola me lo han dicho a la vez."
 
+    call screen tarjeta("Reto 5 completado", "Operación Vaso Doble", "Reparaste el evento de cambio y configuraste el aviso de capacidad. El circuito de devolución permite lavar los vasos y volver a usarlos.", "Responder encuesta final")
+    $ registro_actual.cerrar_reto()
+    $ registro_actual.anotar("fin_juego")
+    call encuesta_posterior
     $ registro_actual.terminar()
-    call screen tarjeta("Reto 5 completado", "Operación Vaso Doble", "Reparaste el evento de cambio y configuraste el aviso de capacidad. El circuito de devolución permite lavar los vasos y volver a usarlos.", "Volver al menú")
     call screen exportar_registro
     return
 

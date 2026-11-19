@@ -6,6 +6,8 @@
 **Temporización prevista en la memoria.** Octubre de 2026.  
 **Estado.** Prototipo narrativo y funcional en Ren’Py con cinco retos. Pendiente de pilotaje en el aula.
 
+[Proyecto e instrucciones de Operación Vaso Doble](operacion-vaso-doble/README.md)
+
 ## 1. Diseño del escape room de adquisición
 
 ### Historia y objetivos de aprendizaje

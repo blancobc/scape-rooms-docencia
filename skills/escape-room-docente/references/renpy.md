@@ -4,7 +4,7 @@ Ejecuta python3 scripts/crear_proyecto.py DESTINO --nombre "Título" --id identi
 
 La plantilla proporciona script.rpy, encuestas.rpy, registro.rpy, registro_partida.py y screens.rpy. El script muestra cómo empezar sesión, encuestas, retos, respuestas y exportación. Cada recurso referenciado debe estar en el proyecto y los módulos Python deben viajar también en la versión web.
 
-Ejecuta lint con un SDK compatible. Recorre elecciones erróneas, reintentos, respuestas correctas y enlaces entre retos. Inspecciona capturas con textos largos y modelos. Comprueba comentarios con acentos y separadores, respuestas vacías, cronología, fin único por reto y fin de partida posterior a la encuesta. Abre el CSV real generado.
+Ejecuta lint con un SDK compatible. Recorre elecciones erróneas, reintentos, respuestas correctas y enlaces entre retos. Inspecciona capturas con textos largos y modelos. Comprueba comentarios con acentos y separadores, respuestas vacías, cronología, fin único por reto y fin de partida posterior a la encuesta. En las matrices prueba con clics valores de varias filas y verifica el CSV: conservar el valor 3 por defecto y guardar cambios como 1, 2, 4 y 5 son comportamientos distintos que hay que comprobar. Abre el CSV real generado.
 
 Usa temporales para pruebas y excluye sus datos de la distribución. Copia de vuelta solo los cambios autorizados, preservando ediciones del usuario.
 

@@ -23,7 +23,7 @@ Las imágenes de los modelos deben poder reemplazarse independientemente. Usa di
 
 ## Evaluación
 
-Lee [Evaluación y CSV](references/evaluacion.md) antes de cambiar preguntas o instrumentación y al analizar resultados. Repite las mismas preguntas de confianza y escalas en pre y post. Conserva identificador de partida, respuestas cronológicas y tiempos diferenciables de juego y encuestas.
+Lee [Evaluación y CSV](references/evaluacion.md) antes de cambiar preguntas o instrumentación y al analizar resultados. Repite las mismas preguntas de confianza y escalas en pre y post, agrupadas en matrices con 3 preseleccionado. Agrupa la valoración de experiencia en otra matriz y deja dificultad y comentario opcional juntos al final. Conserva identificador de partida, respuestas cronológicas y tiempos diferenciables de juego y encuestas.
 
 ## Publicación
 

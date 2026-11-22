@@ -4,7 +4,7 @@
 
 **Participantes.** Carlos, como responsable principal, con el apoyo del resto del equipo.  
 **Temporización prevista en la memoria.** Octubre de 2026.  
-**Estado.** Prototipo narrativo y funcional en Ren’Py con cinco retos. Pendiente de pilotaje en el aula.
+**Estado.** Prototipo funcional en Ren’Py con cinco retos, encuestas integradas y exportación de registros. Paquete web preparado para itch.io. Pendiente de pilotaje en el aula.
 
 [Proyecto e instrucciones de Operación Vaso Doble](operacion-vaso-doble/README.md)
 
@@ -36,7 +36,7 @@ En la prueba del sensor, el depósito permanece lleno mientras el panel simula l
 
 ### Dinámica y retroalimentación
 
-La actividad se plantea como una partida individual de unos 30 minutos, duración pendiente de comprobar con alumnado. Cada reto presenta el fallo, permite reproducirlo y muestra un fragmento del diagrama con un botón para proponer la reparación. El diagrama permanece visible junto a las opciones.
+La actividad se plantea como una partida individual de unos 30 minutos, duración pendiente de comprobar con alumnado, incluyendo las encuestas inicial y final. Cada reto presenta el fallo, permite reproducirlo y muestra un fragmento del diagrama con un botón para proponer la reparación. El diagrama permanece visible junto a las opciones.
 
 La elección produce una explicación inmediata con **«Solución correcta» en verde** o **«Solución incorrecta» en rojo**. Los casos del banco de pruebas aparecen juntos. Una reparación incorrecta permite volver a elegir y la correcta conduce a la comprobación narrativa y al siguiente incidente. Las ilustraciones de personajes, máquina y pantalla cambian según la acción.
 
@@ -49,3 +49,10 @@ El **ODS 12, Producción y consumo responsables**, se hace explícito al configu
 Se puede avisar al 50 %, al 80 %, al 95 % o al llenarse. Cada alternativa muestra el margen disponible, el riesgo de interrupción y sus implicaciones para el trabajo del personal. El 80 % ofrece diez minutos de capacidad al ritmo previsto. El jugador puede cambiar o mantener su configuración y recibe un cierre acorde con ella. Estos tiempos son estimaciones del escenario con afluencia constante.
 
 
+## 3. Evaluación y materiales disponibles
+
+Antes del prólogo se presenta una matriz de confianza sobre seis tareas relacionadas con los contenidos. Tras los cinco retos se repite esa matriz y se recoge la valoración de la experiencia. Una última pantalla reúne la dificultad percibida y un comentario opcional de mejora. Las opciones están inicialmente en 3 y pueden modificarse antes de continuar.
+
+Cada partida registra las fechas de inicio y fin, los tiempos, las opciones seleccionadas en las decisiones registradas, los errores y los reintentos, junto con las respuestas a las encuestas. Al finalizar, el alumnado puede obtener un único CSV y entregarlo en Moodle. El diseño de los instrumentos y los criterios de análisis se recogen en la [fase 4](Fase4_Diseno_Instrumentos_Evaluacion.md).
+
+Se dispone del proyecto Ren’Py con código e ilustraciones y de un paquete web para jugar sin instalación desde itch.io. El pilotaje deberá comprobar la duración, la claridad de las instrucciones y la descarga y entrega del CSV en los equipos del aula.

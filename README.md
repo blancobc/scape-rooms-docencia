@@ -13,6 +13,7 @@ El proyecto aplica el mismo modelo en tres momentos del aprendizaje:
 - [Memoria de la propuesta](Memoria_propuesta_publica.md)
 - [Fase 1. Enfoque metodológico general](Fase1_Resumen_Marco_Metodologico.md)
 - [Fase 2. Diseño del escape room de adquisición](Fase2_Diseno_Escape_Room_Adquisicion.md)
+- [Fase 4. Diseño de los instrumentos de evaluación](Fase4_Diseno_Instrumentos_Evaluacion.md)
 
 ## Materiales para reutilizar
 

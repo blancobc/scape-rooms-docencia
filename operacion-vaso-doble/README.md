@@ -7,7 +7,7 @@ El juego trabaja acciones en transiciones, guardas y valores límite, eventos te
 - [Proyecto Ren’Py](renpy), con el código y las ilustraciones.
 - [Paquete web para itch.io](operacion-vaso-doble-web.zip), para jugar desde el navegador una vez alojado.
 
-La actividad incluye encuestas antes y después del juego. Al finalizar permite obtener un CSV con sus respuestas, los tiempos de partida y de cada reto, las opciones elegidas y los reintentos. El alumnado puede entregar ese archivo en una tarea de Moodle.
+La actividad incluye encuestas antes y después del juego. Al finalizar permite obtener un CSV con sus respuestas, los tiempos de partida y de cada reto, las opciones elegidas y los reintentos. El alumnado puede entregar ese archivo en una tarea de Moodle. La confianza se responde en una matriz inicial y otra final; la valoración de la experiencia se reúne en una segunda matriz final, seguida de la dificultad y un comentario opcional de mejora. El diseño y los criterios de análisis se detallan en la [fase 4](../Fase4_Diseno_Instrumentos_Evaluacion.md).
 
 Para ejecutar el proyecto localmente, selecciona la carpeta que contiene `renpy` como directorio de proyectos en el lanzador de Ren’Py y ejecuta el juego. Para alojarlo en itch.io, sube el paquete web como proyecto HTML y marca que se juega en el navegador.
 

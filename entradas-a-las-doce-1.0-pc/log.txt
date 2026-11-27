@@ -1,0 +1,53 @@
+2026-11-26 16:24:12 UTC
+macOS-27.2.1-arm64-arm-64bit
+Ren'Py 8.6.0.26110123
+
+Entradas a las doce
+1.0
+Built at 2026-11-26 10:37:20 UTC
+
+Early init took 26 ms
+Loading error handling took 12 ms
+Loading script took 110 ms
+Loading save slot metadata took 6 ms
+Loading persistent took 7 ms
+Set script version to: (8, 6, 1)
+Running init code took 18 ms
+Loading analysis data took 2 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 0 ms
+Dump and make backups took 22 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 15 ms
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 10 ms
+Save screen analysis took 6 ms
+Save pyanalysis took 2 ms
+Save bytecode took 16 ms
+Running _start took 0 ms
+Interface start took 889 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1496, 967)
+swap interval: 1 frames
+Requesting OpenGL 3.3.
+Windowed mode.
+Could not get pygame screen: error('Failed creating OpenGL context at version requested')
+Requesting OpenGL 3.3 core.
+Windowed mode.
+Vendor: 'Apple'
+Renderer: 'Apple M2 Pro'
+Version: '4.1 Metal - 91.7'
+Shading language version: '4.10'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 4278190080), 'shifts': (16, 8, 0, 24), 'losses': (0, 0, 0, 0), 'current_w': 1496, 'current_h': 967, 'refresh_rate': 120.0, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Emitting shaders as GLSL 330.
+Screen sizes: virtual=(1920, 1080) physical=(1394, 784) drawable=(2788, 1568)
+Maximum texture size: 4096x4096
+Cleaning stores took 0 ms
+Load screen analysis took 8 ms
+Analyze screens took 0 ms
+Running _start took 2 ms
